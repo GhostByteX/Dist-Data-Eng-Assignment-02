@@ -2,6 +2,7 @@ import boto3
 import csv
 from datetime import datetime
 from decimal import Decimal
+import config
 
 # Create a DynamoDB client
 region_name = 'ap-northeast-1'
@@ -9,8 +10,8 @@ table_name = 'my-bitcoin-tweets'
 
 # Create a DynamoDB resource
 session = boto3.Session(
-    aws_access_key_id='AKIA5VWRR5KMRTHQQITU',
-    aws_secret_access_key='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'
+    aws_access_key_id=config.aws_access_key_id,
+    aws_secret_access_key=config.aws_secret_access_key
 )
 dynamodb = session.resource('dynamodb', region_name = region_name)
 table = dynamodb.Table(table_name)
