@@ -1,14 +1,14 @@
 import boto3
 import ast
-
+import config
 # Define the AWS region and DynamoDB table name
 region_name = 'ap-northeast-1'
 table_name = 'my-bitcoin-tweets'
 
 # Create a DynamoDB resource
 session = boto3.Session(
-    aws_access_key_id='AKIA5VWRR5KMRTHQQITU',
-    aws_secret_access_key='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'
+    aws_access_key_id=config.aws_access_key_id,
+    aws_secret_access_key=config.aws_secret_access_key
 )
 dynamodb = session.resource('dynamodb', region_name = region_name)
 # Select the table
